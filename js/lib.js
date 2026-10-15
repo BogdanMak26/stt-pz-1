@@ -15,6 +15,8 @@ function sum(a, b) {
  * @returns {number}
  */
 function pow(x, n) {
+
+  if (n < 0) return 1 / pow(x, -n);
   let result = 1;
 
   for (let i = 0; i < n; i++) {
@@ -39,6 +41,7 @@ function factorial(n) {
  * @returns {*|number}
  */
 function fibonacci(n) {
+  if (n <= 0) return 0;
   return (n > 2) ? fibonacci(n - 1) + fibonacci(n - 2) : 1;
 }
 
@@ -76,13 +79,9 @@ function makeCounter(currentCount) {
  */
 
 function getAsyncTimerId(time) {
-  let timerId;
-  setTimeout(() => {
-    timerId = Math.floor(Date.now() / 1000)
-  }, time);
-
-  return timerId
-};
+  return new Promise(resolve =>
+    setTimeout(() => resolve(Math.floor(Date.now() / 1000)), time));
+}
 
 /**
  * This function return promise and multiply paraments

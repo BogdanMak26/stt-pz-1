@@ -1,29 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8"/>
-  <title>Mocha Tests</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css"/>
-
-  <script src="https://unpkg.com/chai/chai.js"></script>
-  <script src="https://unpkg.com/mocha/mocha.js"></script>
-  <script>
-    var assert = chai.assert;
-  </script>
+  <meta charset="UTF-8">
+  <title>Mocha tests: lib.js</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.css">
 </head>
 <body>
-<div id="mocha"></div>
+  <div id="mocha"></div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mocha/10.2.0/mocha.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/chai/4.3.10/chai.min.js"></script>
+
+  <script>
+    mocha.setup('bdd');            // BDD interface: describe / it
+    window.assert = chai.assert;   // Chai assert style used in the specs
+  </script>
 
 
-<script class="mocha-init">
-  mocha.setup('bdd');
-  mocha.checkLeaks();
-</script>
-<script src="./js/lib.js"></script>
-<script src="./js/lib.spec.js"></script>
-<script class="mocha-exec">
-  mocha.run();
-</script>
+  <script src="js/lib.js"></script>
+  <script src="js/lib.spec.js"></script>
+
+  <script>
+    mocha.run();
+  </script>
 </body>
 </html>
